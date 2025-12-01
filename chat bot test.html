@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Safe Sex Info</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #5b2c6f;
+      display: flex;
+      align-items: stretch;
+      height: 100vh;
+      color: #fff;
+    }
+    .side-panel {
+      width: 300px;
+      background: #8e44ad;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: width 0.3s;
+      overflow: hidden;
+      align-items: flex-start;
+      position: relative;
+    }
+    .side-panel.collapsed {
+      width: 50px;
+      align-items: center;
+    }
+    .toggle-btn {
+      background: #6c3483;
+      border: none;
+      color: #fff;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .card {
+      background: #9b59b6;
+      padding: 30px 20px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+      position: relative;
+    }
+    .card h3 {
+      margin: 0;
+      color: #e0b3ff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card a {
+      display: block;
+      margin-top: 8px;
+      color: #e0b3ff;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+    .side-panel.collapsed .card::before {
+      content: '';
+      display: block;
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: #e0b3ff;
+    }
+    .side-panel.collapsed .card:nth-child(2)::before { content: '\f05a'; } /* info-circle */
+    .side-panel.collapsed .card:nth-child(3)::before { content: '\f058'; } /* check-circle */
+    .side-panel.collapsed .card h3, .side-panel.collapsed .card a {
+      display: none;
+    }
+    .chatbot-shortcut {
+      background: #7d3c98;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      color: #e0b3ff;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="side-panel" id="sidePanel">
+    <button class="toggle-btn" id="toggleBtn"><i class="fas fa-bars"></i></button>
+    <div class="card">
+      <h3><i class="fas fa-info-circle"></i> About Safe Sex</h3>
+      <a href="#"><i class="fas fa-arrow-right"></i> What to know about safe sex</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Nearest facilities</a>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-check-circle"></i> Self Assessment</h3>
+    </div>
+
+    <div class="chatbot-shortcut" id="chatbotShortcut"><i class="fas fa-comment"></i></div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const sidePanel = document.getElementById('sidePanel');
+
+    toggleBtn.addEventListener('click', () => {
+      sidePanel.classList.toggle('collapsed');
+    });
+
+    const chatbotShortcut = document.getElementById('chatbotShortcut');
+    chatbotShortcut.addEventListener('click', () => {
+      alert('Chatbot opened!'); // Placeholder action, you can open a chat window here
+    });
+  </script>
+</body>
+</html>
